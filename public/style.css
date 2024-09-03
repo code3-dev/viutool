@@ -1,0 +1,107 @@
+/* Main Styles */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Button Styles */
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  width: 100%;
+}
+
+.btn-primary {
+  background-color: #3498db;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #2980b9;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: #2ecc71;
+  color: white;
+}
+
+.btn-secondary:hover {
+  background-color: #27ae60;
+  transform: translateY(-2px);
+}
+
+/* Sidebar Styles */
+#mobileMenu {
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#overlay {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .menu-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .menu-links a {
+    display: block;
+    width: 100%;
+  }
+}
+
+/* Footer Styles */
+footer {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+footer a {
+  color: #3498db;
+  text-decoration: underline;
+}
+
+footer a:hover {
+  color: #2980b9;
+}
+
+/* Testimonials Section Styles */
+#testimonials {
+  background-color: #f9fafb;
+}
+
+#testimonials h2 {
+  color: #2d3748;
+}
+
+#testimonials .bg-white {
+  border: 1px solid #e2e8f0;
+}
+
+#testimonials .bg-white p {
+  color: #4a5568;
+}
+
+#testimonials .font-semibold {
+  color: #2d3748;
+}
+
+/* Profile Image Styles */
+#testimonials img {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-width: 2px;
+  border-color: #e2e8f0;
+}

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= appName %> - JavaScript Minifier</title>
+    <link rel="stylesheet" href="/css/all.min.css" />
+    <link rel="stylesheet" href="/tools/js-minify/style.css" />
+    <link rel="stylesheet" href="/tailwind.min.css" />
+  </head>
+
+  <body class="bg-gray-50 min-h-screen flex flex-col justify-between">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md fixed w-full z-10">
+      <div
+        class="container mx-auto px-4 py-4 flex justify-between items-center"
+      >
+        <a href="#" class="text-2xl font-bold text-blue-600">
+          <i class="fas fa-robot text-blue-600 text-3xl mr-2"></i>
+          <%= appName %>
+        </a>
+        <div class="hidden md:flex space-x-6">
+          <a href="/" class="text-gray-700 hover:text-blue-600">Home</a>
+          <a href="#header" class="text-gray-700 hover:text-blue-600"
+            >JavaScript Minifier</a
+          >
+          <a href="#features" class="text-gray-700 hover:text-blue-600"
+            >Features</a
+          >
+          <a href="#contact" class="text-gray-700 hover:text-blue-600"
+            >Contact</a
+          >
+        </div>
+        <button
+          id="menuButton"
+          class="md:hidden text-2xl text-gray-700 focus:outline-none"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Sidebar (Mobile Navigation) -->
+    <div
+      id="mobileMenu"
+      class="fixed top-0 right-0 h-full w-64 bg-white shadow-lg transform translate-x-full transition-transform duration-300 z-20"
+    >
+      <button
+        id="closeButton"
+        class="absolute top-4 right-4 text-2xl text-gray-700 focus:outline-none"
+      >
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="menu-links mt-16 px-6 space-y-6">
+        <a href="/" class="text-gray-700 hover:text-blue-600">Home</a>
+        <a href="#header" class="text-gray-700 hover:text-blue-600"
+          >JavaScript Minifier</a
+        >
+        <a href="#features" class="block text-gray-700 hover:text-blue-600"
+          >Features</a
+        >
+        <a href="#contact" class="block text-gray-700 hover:text-blue-600"
+          >Contact</a
+        >
+      </div>
+    </div>
+
+    <!-- Overlay -->
+    <div
+      id="overlay"
+      class="fixed inset-0 bg-black opacity-50 hidden z-10"
+    ></div>
+
+    <!-- Hero Section -->
+    <header id="header" class="bg-blue-600 text-white py-20 mt-16">
+      <div class="container mx-auto text-center px-4">
+        <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-normal">
+          Minify Your JavaScript Files Easily
+        </h1>
+        <p class="text-lg md:text-2xl mb-8">
+          Quickly reduce the size of your JavaScript files for faster load
+          times.
+        </p>
+        <a
+          href="#jsminify"
+          class="bg-white text-blue-600 px-6 py-3 rounded-full text-lg font-semibold shadow-lg hover:bg-gray-100"
+          >Get Started</a
+        >
+      </div>
+    </header>
+
+    <!-- Main JavaScript Minifier Section -->
+    <section id="jsminify" class="py-16 bg-gray-100 px-2">
+      <div class="container mx-auto p-8 bg-white rounded-lg shadow-lg max-w-lg">
+        <h2
+          class="text-3xl md:text-4xl text-center font-extrabold text-gray-800 mb-8"
+        >
+          JavaScript Minifier
+        </h2>
+        <form id="minifyForm" class="space-y-8">
+          <div
+            class="file-drop-area"
+            onclick="document.getElementById('jsFile').click();"
+          >
+            <i class="fas fa-upload icon"></i>
+            <span class="text" id="fileLabel">Click to Select JS File</span>
+            <input
+              type="file"
+              id="jsFile"
+              name="jsFile"
+              accept=".js"
+              required
+            />
+          </div>
+          <div class="flex flex-col md:flex-row justify-between gap-4">
+            <button type="submit" class="btn btn-primary">
+              <i class="fas fa-code-branch"></i>
+              Minify JavaScript
+            </button>
+            <a id="downloadLink" href="#" class="btn btn-secondary hidden">
+              <i class="fas fa-download"></i>
+              Download Minified JavaScript
+            </a>
+          </div>
+        </form>
+        <div id="loading" class="flex justify-center my-8 hidden">
+          <div class="loading-spinner"></div>
+        </div>
+        <div id="result" class="hidden">
+          <p class="text-center text-green-600 font-bold mt-2">
+            Your JavaScript file has been minified successfully!
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-16 px-2 md:px-8">
+      <div class="container mx-auto text-center">
+        <h2 class="text-4xl font-extrabold text-gray-800 mb-8">
+          Why Use Our JavaScript Minifier?
+        </h2>
+        <div class="flex flex-wrap justify-center gap-8">
+          <div class="w-full md:w-1/3 p-4">
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+              <i class="fas fa-tachometer-alt text-4xl text-blue-600 mb-4"></i>
+              <h3 class="text-2xl font-bold mb-4">Fast Processing</h3>
+              <p class="text-gray-600">
+                Our tools are optimized for speed, ensuring quick results every
+                time.
+              </p>
+            </div>
+          </div>
+          <div class="w-full md:w-1/3 p-4">
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+              <i class="fas fa-shield-alt text-4xl text-blue-600 mb-4"></i>
+              <h3 class="text-2xl font-bold mb-4">Secure Processing</h3>
+              <p class="text-gray-600">
+                Your JavaScript files are processed securely without being saved
+                on our servers.
+              </p>
+            </div>
+          </div>
+          <div class="w-full md:w-1/3 p-4">
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+              <i class="fas fa-magic text-4xl text-blue-600 mb-4"></i>
+              <h3 class="text-2xl font-bold mb-4">High-Quality Output</h3>
+              <p class="text-gray-600">
+                Minify your JavaScript while maintaining high quality and
+                browser compatibility.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-gray-800 text-white py-12">
+      <div class="container mx-auto text-center">
+        <h3 class="text-2xl font-bold mb-6">Get in Touch</h3>
+        <p class="mb-6">
+          Have questions or need support? Contact us at
+          <a href="mailto:<%= appEmail %>" class="text-blue-400"
+            ><%= appEmail %></a
+          >
+        </p>
+        <p>&copy; <%= currentYear %> <%= appName %>. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="/tools/js-minify/script.js"></script>
+  </body>
+</html>

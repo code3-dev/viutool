@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= appName %> - Home</title>
+    <link rel="stylesheet" href="/css/all.min.css" />
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/tailwind.min.css" />
+  </head>
+
+  <body class="bg-gray-50 min-h-screen flex flex-col justify-between">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md fixed w-full z-10">
+      <div
+        class="container mx-auto px-4 py-4 flex justify-between items-center"
+      >
+        <a href="#" class="text-2xl font-bold text-blue-600">
+          <i class="fas fa-robot text-blue-600 text-3xl mr-2"></i>
+          <%= appName %>
+        </a>
+        <div class="hidden md:flex space-x-6">
+          <a href="#" class="text-gray-700 hover:text-blue-600">Home</a>
+          <a href="#about" class="text-gray-700 hover:text-blue-600"
+            >About Us</a
+          >
+          <a href="#tools" class="text-gray-700 hover:text-blue-600">Tools</a>
+          <a href="#features" class="text-gray-700 hover:text-blue-600"
+            >Features</a
+          >
+          <a href="#contact" class="text-gray-700 hover:text-blue-600"
+            >Contact</a
+          >
+        </div>
+        <button
+          id="menuButton"
+          class="md:hidden text-2xl text-gray-700 focus:outline-none"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Sidebar (Mobile Navigation) -->
+    <div
+      id="mobileMenu"
+      class="fixed top-0 right-0 h-full w-64 bg-white shadow-lg transform translate-x-full transition-transform duration-300 z-20"
+    >
+      <button
+        id="closeButton"
+        class="absolute top-4 right-4 text-2xl text-gray-700 focus:outline-none"
+      >
+        <i class="fas fa-times"></i>
+      </button>
+      <div class="menu-links mt-16 px-6 space-y-6">
+        <a href="#" class="text-gray-700 hover:text-blue-600">Home</a>
+        <a href="#about" class="text-gray-700 hover:text-blue-600">About Us</a>
+        <a href="#tools" class="text-gray-700 hover:text-blue-600">Tools</a>
+        <a href="#features" class="block text-gray-700 hover:text-blue-600"
+          >Features</a
+        >
+        <a href="#contact" class="block text-gray-700 hover:text-blue-600"
+          >Contact</a
+        >
+      </div>
+    </div>
+
+    <!-- Overlay -->
+    <div
+      id="overlay"
+      class="fixed inset-0 bg-black opacity-50 hidden z-10"
+    ></div>
+
+    <!-- Hero Section -->
+    <header id="header" class="bg-blue-600 text-white py-20 mt-16">
+      <div class="container mx-auto text-center px-4">
+        <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-normal">
+          All Your Image and Web Tools in One Place
+        </h1>
+        <p class="text-lg md:text-2xl mb-8">
+          Edit, Compress, and Enhance your images effortlessly.
+        </p>
+        <a
+          href="#tools"
+          class="bg-white text-blue-600 px-6 py-3 rounded-full text-lg font-semibold shadow-lg hover:bg-gray-100"
+          >Explore Tools</a
+        >
+      </div>
+    </header>
+
+    <!-- Search Section -->
+    <section id="search" class="pt-16 pb-10 bg-gray-100 px-4">
+      <div class="container mx-auto text-center">
+        <h2 class="text-4xl font-extrabold text-gray-800 mb-8">Search Tools</h2>
+        <form id="searchForm" class="flex justify-center mb-8">
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search for tools..."
+            class="p-2 border rounded-l-lg w-full max-w-lg"
+          />
+          <select id="categorySelect" class="p-2 border rounded-r-lg">
+            <option value="">All Categories</option>
+            <option value="Image Tools">Image Tools</option>
+            <option value="Web Tools">Web Tools</option>
+            <option value="Security Tools">Security Tools</option>
+          </select>
+          <button
+            type="submit"
+            class="bg-blue-600 text-white px-4 py-2 rounded ml-2 hidden md:flex"
+          >
+            Search
+          </button>
+        </form>
+        <div id="searchResults" class="flex flex-wrap justify-center gap-8">
+          <!-- Search results will be injected here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section id="tools" class="pb-16 bg-gray-100 px-4">
+      <div class="container mx-auto text-center">
+        <h2 class="text-4xl font-extrabold text-gray-800 mb-8">Our Tools</h2>
+        <div class="flex flex-wrap justify-center gap-8">
+          <!-- Tool 1: Image Compressor -->
+          <div
+            class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow w-full md:w-1/3"
+          >
+            <div
+              class="flex items-center justify-center text-4xl text-blue-600 mb-4"
+            >
+              <i class="fas fa-compress"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Image Compressor</h3>
+            <p class="text-gray-600 mb-6">
+              Reduce the size of your images without compromising on quality.
+            </p>
+            <a href="/tools/compressor" class="btn btn-primary">Go to Tool</a>
+          </div>
+
+          <!-- Tool 2: Image Resizer -->
+          <div
+            class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow w-full md:w-1/3"
+          >
+            <div
+              class="flex items-center justify-center text-4xl text-blue-600 mb-4"
+            >
+              <i class="fas fa-expand-arrows-alt"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Image Resizer</h3>
+            <p class="text-gray-600 mb-6">
+              Easily resize your images to any dimensions.
+            </p>
+            <a href="/tools/resizer" class="btn btn-primary">Go to Tool</a>
+          </div>
+
+          <!-- Tool 3: Image Converter -->
+          <div
+            class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow w-full md:w-1/3"
+          >
+            <div
+              class="flex items-center justify-center text-4xl text-blue-600 mb-4"
+            >
+              <i class="fas fa-exchange-alt"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Image Converter</h3>
+            <p class="text-gray-600 mb-6">
+              Convert your images from one format to another effortlessly.
+            </p>
+            <a href="/tools/converter" class="btn btn-primary">Go to Tool</a>
+          </div>
+
+          <!-- Tool 4: Image Grayscale Converter -->
+          <div
+            class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow w-full md:w-1/3"
+          >
+            <div
+              class="flex items-center justify-center text-4xl text-blue-600 mb-4"
+            >
+              <i class="fas fa-adjust"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Image Grayscale Converter</h3>
+            <p class="text-gray-600 mb-6">
+              Convert your images to grayscale effortlessly.
+            </p>
+            <a href="/tools/grayscale" class="btn btn-primary">Go to Tool</a>
+          </div>
+
+          <!-- Tool 5: Image to Base64 Converter -->
+          <div
+            class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow w-full md:w-1/3"
+          >
+            <div
+              class="flex items-center justify-center text-4xl text-blue-600 mb-4"
+            >
+              <i class="fas fa-code"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Image to Base64 Converter</h3>
+            <p class="text-gray-600 mb-6">
+              Convert your images into Base64 strings for easy embedding in HTML
+              or CSS.
+            </p>
+            <a href="/tools/image-base64" class="btn btn-primary">Go to Tool</a>
+          </div>
+
+          <!-- Tool 6: Color Picker -->
+          <div
+            class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow w-full md:w-1/3"
+          >
+            <div
+              class="flex items-center justify-center text-4xl text-blue-600 mb-4"
+            >
+              <i class="fas fa-palette"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Color Picker (from image)</h3>
+            <p class="text-gray-600 mb-6">
+              Extract the dominant color and palette from your images with ease.
+            </p>
+            <a href="/tools/color-picker" class="btn btn-primary">Go to Tool</a>
+          </div>
+
+          <!-- Tool 7: CSS Minifier -->
+          <div
+            class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow w-full md:w-1/3"
+          >
+            <div
+              class="flex items-center justify-center text-4xl text-blue-600 mb-4"
+            >
+              <i class="fab fa-css3-alt"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">CSS Minifier</h3>
+            <p class="text-gray-600 mb-6">
+              Minify your CSS files to reduce their size and improve loading
+              times.
+            </p>
+            <a href="/tools/css-minify" class="btn btn-primary">Go to Tool</a>
+          </div>
+
+          <!-- Tool 8: JS Minifier -->
+          <div
+            class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow w-full md:w-1/3"
+          >
+            <div
+              class="flex items-center justify-center text-4xl text-blue-600 mb-4"
+            >
+              <i class="fab fa-js"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">JS Minifier</h3>
+            <p class="text-gray-600 mb-6">
+              Minify your JavaScript files to reduce their size and improve
+              loading times.
+            </p>
+            <a href="/tools/js-minify" class="btn btn-primary">Go to Tool</a>
+          </div>
+
+          <!-- Tool 9: SCSS/SASS Compiler -->
+          <div
+            class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow w-full md:w-1/3"
+          >
+            <div
+              class="flex items-center justify-center text-4xl text-blue-600 mb-4"
+            >
+              <i class="fab fa-sass"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">SCSS/SASS Compiler</h3>
+            <p class="text-gray-600 mb-6">
+              Compile and minify your SCSS/SASS files to CSS with ease. Optimize
+              your stylesheets for better performance.
+            </p>
+            <a href="/tools/sass" class="btn btn-primary">Go to Tool</a>
+          </div>
+
+          <!-- Tool 10: JWT Generator -->
+          <div
+            class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow w-full md:w-1/3"
+          >
+            <div
+              class="flex items-center justify-center text-4xl text-blue-600 mb-4"
+            >
+              <i class="fas fa-key"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">JWT Generator</h3>
+            <p class="text-gray-600 mb-6">
+              Generate and validate JSON Web Tokens (JWT) for secure data
+              exchange.
+            </p>
+            <a href="/tools/jwt" class="btn btn-primary">Go to Tool</a>
+          </div>
+
+          <!-- Tool 11: Image Enhancer -->
+          <div
+            class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow w-full md:w-1/3"
+          >
+            <div
+              class="flex items-center justify-center text-4xl text-blue-600 mb-4"
+            >
+              <i class="fas fa-image"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-4">Image Enhancer</h3>
+            <p class="text-gray-600 mb-6">
+              Enhance your images with AI, improving clarity, resolution, and
+              quality.
+            </p>
+            <a href="/tools/enhance" class="btn btn-primary">Go to Tool</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="py-16 px-4 bg-white">
+      <div
+        class="container mx-auto flex flex-col md:flex-row items-center justify-between"
+      >
+        <!-- Text Content -->
+        <div class="w-full md:w-1/2 mb-8 md:mb-0">
+          <h2 class="text-4xl font-extrabold text-gray-800 mb-6">About Us</h2>
+          <p class="text-lg text-gray-600 mb-6">
+            At <%= appName %>, we are passionate about providing innovative and
+            easy-to-use tools for managing and enhancing your digital content.
+            Our team of experts continuously works to develop and refine
+            solutions that meet the needs of our diverse user base. We strive
+            for excellence in every aspect of our work, ensuring that our tools
+            are fast, reliable, and secure.
+          </p>
+          <p class="text-lg text-gray-600">
+            Our mission is to simplify the digital workflow by offering
+            powerful, intuitive tools that empower you to achieve more with less
+            effort. Whether you're an individual or a business, we're here to
+            support your goals and help you succeed.
+          </p>
+        </div>
+        <!-- Image -->
+        <div class="w-full md:w-1/2">
+          <img
+            src="/images/home/about.webp"
+            alt="About Us"
+            class="w-full h-auto rounded-lg shadow-lg"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 bg-gray-100 px-4">
+      <div class="container mx-auto text-center">
+        <h2 class="text-4xl font-extrabold text-gray-800 mb-8">
+          What Our Users Say
+        </h2>
+        <div class="flex flex-wrap justify-center gap-8">
+          <!-- Testimonial 1 -->
+          <div class="w-full md:w-1/3 p-4">
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+              <div class="flex items-center justify-center mb-4">
+                <img
+                  src="/images/home/profile1.jpg"
+                  alt="Jane Doe"
+                  class="w-16 h-16 rounded-full border-2 border-blue-500"
+                />
+              </div>
+              <p class="text-gray-600 mb-4">
+                <%= appName %> has transformed how we handle images. The
+                compressor is especially effective—quick and easy!
+              </p>
+              <p class="font-semibold">Jane Doe</p>
+              <p class="text-gray-500">Graphic Designer</p>
+            </div>
+          </div>
+          <!-- Testimonial 2 -->
+          <div class="w-full md:w-1/3 p-4">
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+              <div class="flex items-center justify-center mb-4">
+                <img
+                  src="/images/home/profile2.jpg"
+                  alt="John Smith"
+                  class="w-16 h-16 rounded-full border-2 border-blue-500"
+                />
+              </div>
+              <p class="text-gray-600 mb-4">
+                The image resizer tool is a game-changer. It’s fast, reliable,
+                and integrates seamlessly with my workflow.
+              </p>
+              <p class="font-semibold">John Smith</p>
+              <p class="text-gray-500">Web Developer</p>
+            </div>
+          </div>
+          <!-- Testimonial 3 -->
+          <div class="w-full md:w-1/3 p-4">
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+              <div class="flex items-center justify-center mb-4">
+                <img
+                  src="/images/home/profile3.jpg"
+                  alt="Emily Johnson"
+                  class="w-16 h-16 rounded-full border-2 border-blue-500"
+                />
+              </div>
+              <p class="text-gray-600 mb-4">
+                I love the variety of tools available on <%= appName %>. They
+                make my job so much easier and are incredibly user-friendly.
+              </p>
+              <p class="font-semibold">Emily Johnson</p>
+              <p class="text-gray-500">Photographer</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-16 px-2 md:px-8">
+      <div class="container mx-auto text-center">
+        <h2 class="text-4xl font-extrabold text-gray-800 mb-8">
+          Why Use Our Tools?
+        </h2>
+        <div class="flex flex-wrap justify-center gap-8">
+          <div class="w-full md:w-1/3 p-4">
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+              <i class="fas fa-tachometer-alt text-4xl text-blue-600 mb-4"></i>
+              <h3 class="text-2xl font-bold mb-4">Fast Performance</h3>
+              <p class="text-gray-600">
+                Our tools are optimized for speed, ensuring quick results every
+                time.
+              </p>
+            </div>
+          </div>
+          <div class="w-full md:w-1/3 p-4">
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+              <i class="fas fa-shield-alt text-4xl text-blue-600 mb-4"></i>
+              <h3 class="text-2xl font-bold mb-4">Secure Processing</h3>
+              <p class="text-gray-600">
+                Your images are processed securely and never stored on our
+                servers.
+              </p>
+            </div>
+          </div>
+          <div class="w-full md:w-1/3 p-4">
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+              <i class="fas fa-magic text-4xl text-blue-600 mb-4"></i>
+              <h3 class="text-2xl font-bold mb-4">High-Quality Output</h3>
+              <p class="text-gray-600">
+                Get professional results while keeping the simplicity of the
+                tool.
+              </p>
+            </div>
+          </div>
+          <div class="w-full md:w-1/3 p-4">
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+              <i class="fas fa-cogs text-4xl text-blue-600 mb-4"></i>
+              <h3 class="text-2xl font-bold mb-4">Customizable Options</h3>
+              <p class="text-gray-600">
+                Tailor the tools to fit your specific needs with a range of
+                customizable settings.
+              </p>
+            </div>
+          </div>
+          <div class="w-full md:w-1/3 p-4">
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+              <i class="fas fa-sync-alt text-4xl text-blue-600 mb-4"></i>
+              <h3 class="text-2xl font-bold mb-4">Regular Updates</h3>
+              <p class="text-gray-600">
+                Our tools receive regular updates to ensure compatibility with
+                the latest standards and technologies.
+              </p>
+            </div>
+          </div>
+          <div class="w-full md:w-1/3 p-4">
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+              <i class="fas fa-star text-4xl text-blue-600 mb-4"></i>
+              <h3 class="text-2xl font-bold mb-4">User-Friendly Interface</h3>
+              <p class="text-gray-600">
+                Enjoy an intuitive and easy-to-navigate interface designed for
+                effortless use.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-gray-800 text-white py-12">
+      <div class="container mx-auto text-center">
+        <h3 class="text-2xl font-bold mb-6">Get in Touch</h3>
+        <p class="mb-6">
+          Have questions or need support? Contact us at
+          <a href="mailto:<%= appEmail %>" class="text-blue-400"
+            ><%= appEmail %></a
+          >
+        </p>
+        <p>&copy; <%= currentYear %> <%= appName %>. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="/script.js"></script>
+  </body>
+</html>

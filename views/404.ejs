@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 - Page Not Found</title>
+    <link rel="stylesheet" href="/css/all.min.css" />
+    <link rel="stylesheet" href="/tailwind.min.css">
+    <style>
+      /* Additional custom styles */
+      .btn-primary {
+        background-color: #10b981;
+        color: white;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+      }
+      .btn-primary:hover {
+        background-color: #059669;
+        transform: scale(1.05);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-gray-900 text-white min-h-screen flex flex-col items-center justify-center px-5"
+  >
+    <!-- Main Content -->
+    <main class="text-center">
+      <div class="mb-6">
+        <img
+          src="/images/404.svg"
+          alt="404 - Page Not Found"
+          class="max-w-full h-auto mx-auto md:max-w-md lg:max-w-lg"
+        />
+      </div>
+      <h1 class="text-5xl md:text-6xl font-bold mb-4">404</h1>
+      <p class="text-xl md:text-2xl mb-6">Page Not Found</p>
+      <a
+        href="/"
+        class="btn-primary px-6 py-3 rounded-full text-lg font-semibold shadow-md hover:shadow-lg transition duration-300 ease-in-out flex items-center justify-center"
+      >
+        <i class="fas fa-arrow-left mr-2"></i>
+        Go Back Home
+      </a>
+    </main>
+  </body>
+</html>
